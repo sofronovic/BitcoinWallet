@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">BitcoinWallet</string>
+    <string name="app_name">bitcoin wallet</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="restore_wallet">Restore wallet</string>
+    <string name="create_wallet">Create wallet</string>
+    <string name="string_wallet_name_hint">Enter wallet name</string>
+    <string name="submit">submit</string>
+    <string name="next_step">next step</string>
+    <string name="authentication_pin">PIN</string>
+    <string name="authentication_fingerprint">Fingerprint</string>
+    <string name="authentication_setup_title">Authentication</string>
+    <string name="initialize_wallet">Initialize wallet</string>
+    <string name="finish_setup">finish setup</string>
+    <string name="send_bitcoin">send bitcoin</string>
+    <string name="contacts">contacts</string>
+    <string name="address">Wallet address</string>
+    <string name="wallet_name">Wallet name</string>
+    <string name="wallet_balance">Wallet balance</string>
+    <string name="add_new_contact">New contact</string>
+    <string name="bitcoin_amount">bitcoin amount</string>
+    <string name="receiver_address">receiver address</string>
+    <string name="send">send</string>
 </resources>

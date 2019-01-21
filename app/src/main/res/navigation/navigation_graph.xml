@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/splashScreenView">
+
+    <fragment
+        android:id="@+id/splashScreenView"
+        android:name="com.b.nsofronovic.bitcoinwallet.ui.splashscreen.SplashScreenView"
+        android:label="SplashScreen"
+        tools:layout="@layout/fragment_splash_screen">
+        <action
+            android:id="@+id/action_splashScreen_to_initializeWalletView"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/navigation_graph"
+            app:popUpToInclusive="true"
+            app:destination="@+id/initializeWalletView"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"/>
+        <action
+                android:id="@+id/action_splashScreenView_to_dashboardView"
+                app:destination="@id/dashboardView"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/initializeWalletView"
+        android:name="com.b.nsofronovic.bitcoinwallet.ui.initializewallet.InitializeWalletView"
+        android:label="InitializeWalletView"
+        tools:layout="@layout/fragment_initialize_wallet">
+
+    <action android:id="@+id/action_initializeWalletView_to_walletNameView"
+        app:destination="@id/walletNameView"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/contactsView"
+        android:name="com.b.nsofronovic.bitcoinwallet.ui.contactlist.ContactsView"
+        android:label="ContactsView"
+        tools:layout="@layout/fragment_contacts">
+        <action
+                android:id="@+id/action_contactsView_to_contactDetailView"
+                app:destination="@id/contactDetailView"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/walletNameView"
+        android:name="com.b.nsofronovic.bitcoinwallet.ui.walletname.WalletNameView"
+        android:label="fragment_wallet_name"
+        tools:layout="@layout/fragment_wallet_name">
+        <action
+                android:id="@+id/action_walletNameView_to_mnemonicSeedView"
+                app:destination="@id/mnemonicSeedView"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"/>
+    </fragment>
+    <fragment
+            android:id="@+id/mnemonicSeedView"
+            android:name="com.b.nsofronovic.bitcoinwallet.ui.mnemonicseed.MnemonicSeedView"
+            android:label="fragment_mnemonic_seed"
+            tools:layout="@layout/fragment_mnemonic_seed">
+        <action
+                android:id="@+id/action_mnemonicSeedView_to_authenticationSetupView"
+                app:destination="@id/authenticationSetupView"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:popEnterAnim="@anim/nav_default_exit_anim"/>
+    </fragment>
+    <fragment
+            android:id="@+id/authenticationSetupView"
+            android:name="com.b.nsofronovic.bitcoinwallet.ui.authenticationsetup.AuthenticationSetupView"
+            android:label="fragment_authentication_setup_view"
+            tools:layout="@layout/fragment_authentication_setup">
+        <action
+                android:id="@+id/action_authenticationSetupView_to_walletOverview2"
+                app:destination="@id/walletOverview"/>
+    </fragment>
+    <fragment
+            android:id="@+id/walletOverview"
+            android:name="com.b.nsofronovic.bitcoinwallet.ui.walletoverview.WalletOverviewView"
+            android:label="fragment_wallet_overview"
+            tools:layout="@layout/fragment_wallet_overview">
+        <action
+                app:launchSingleTop="true"
+                app:popUpTo="@id/navigation_graph"
+                app:popUpToInclusive="true"
+                android:id="@+id/action_walletOverview_to_dashboardView"
+                app:destination="@id/dashboardView"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/dashboardView"
+            android:name="com.b.nsofronovic.bitcoinwallet.ui.dashboard.DashboardView"
+            android:label="fragment_dashboard_view"
+            tools:layout="@layout/fragment_dashboard">
+        <action
+                android:id="@+id/action_dashboardView_to_contactsView"
+                app:destination="@id/contactsView"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"/>
+        <action
+                android:id="@+id/action_dashboardView_to_sendTransactionView"
+                app:destination="@id/sendTransactionView"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"/>
+    </fragment>
+    <fragment
+            android:id="@+id/contactDetailView"
+            android:name="com.b.nsofronovic.bitcoinwallet.ui.contactdetail.ContactDetailView"
+            android:label="fragment_contact_detail"
+            tools:layout="@layout/fragment_contact_detail">
+
+        <argument
+                android:name="contactId"
+                app:argType="integer"/>
+        <action
+                android:id="@+id/action_contactDetailView_to_contactsView"
+                app:popUpTo="@id/dashboardView"
+                app:destination="@id/contactsView"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"/>
+
+    </fragment>
+    <fragment
+            android:id="@+id/sendTransactionView"
+            android:name="com.b.nsofronovic.bitcoinwallet.ui.sendtransaction.SendTransactionView"
+            android:label="fragment_send_transaction"
+            tools:layout="@layout/fragment_send_transaction"/>
+
+</navigation>
