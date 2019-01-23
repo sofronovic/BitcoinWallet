@@ -71,6 +71,7 @@ class WalletOverviewView : Fragment() {
                 }
                 .subscribe {
                     setWalletCreated()
+                    setWalletName(tvOverviewName.text.toString())
                     openDashboard()
                 })
 
@@ -78,6 +79,10 @@ class WalletOverviewView : Fragment() {
 
     private fun setWalletCreated() {
         viewModel.setWalletCreated()
+    }
+
+    private fun setWalletName(walletName: String) {
+        viewModel.setWalletName(walletName)
     }
 
     private fun openDashboard() {

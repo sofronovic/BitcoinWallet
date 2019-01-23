@@ -7,6 +7,7 @@ import com.b.nsofronovic.bitcoinwallet.service.WalletService
 import com.b.nsofronovic.bitcoinwallet.service.WizardService
 import com.b.nsofronovic.bitcoinwallet.settings.SettingsConstants
 import com.b.nsofronovic.bitcoinwallet.settings.SettingsConstants.Companion.IS_WALLET_CREATED
+import com.b.nsofronovic.bitcoinwallet.settings.SettingsConstants.Companion.WALLET_NAME
 import com.b.nsofronovic.bitcoinwallet.settings.SettingsManager
 import io.reactivex.Completable
 import javax.inject.Inject
@@ -38,5 +39,9 @@ class WalletOverviewViewModel @Inject constructor(private val repository: Wallet
 
     fun setWalletCreated() {
         settingsManager.setBoolean(key = IS_WALLET_CREATED, value = true)
+    }
+
+    fun setWalletName(walletName: String) {
+        settingsManager.setString(WALLET_NAME, walletName)
     }
 }

@@ -8,6 +8,7 @@ data class Address(
     val n_tx: Int,
     val total_received: Int,
     val total_sent: Int,
+    val txrefs: List<Transaction>,
     val unconfirmed_balance: Int,
     val unconfirmed_n_tx: Int
 )

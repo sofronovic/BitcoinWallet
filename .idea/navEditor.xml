@@ -34,8 +34,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="1447" />
-                            <option name="y" value="-1" />
+                            <option name="x" value="1744" />
+                            <option name="y" value="159" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -55,8 +55,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="1186" />
-                            <option name="y" value="167" />
+                            <option name="x" value="1407" />
+                            <option name="y" value="200" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -93,6 +93,11 @@
                               </value>
                             </entry>
                             <entry key="action_dashboardView_to_sendTransactionView">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_dashboardView_to_transactionDetailView">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -149,8 +154,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="1210" />
-                            <option name="y" value="878" />
+                            <option name="x" value="1233" />
+                            <option name="y" value="909" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -161,8 +166,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="1193" />
-                            <option name="y" value="524" />
+                            <option name="x" value="1323" />
+                            <option name="y" value="599" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -190,6 +195,18 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="transactionDetailView">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="958" />
+                            <option name="y" value="1130" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

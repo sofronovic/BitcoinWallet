@@ -1,6 +1,6 @@
 package com.b.nsofronovic.bitcoinwallet.ui.contactlist
 
-interface IContactListener {
+interface   IContactListener {
 
     fun onContactClicked(id: Int?)
 

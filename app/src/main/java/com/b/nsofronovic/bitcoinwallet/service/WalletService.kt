@@ -2,9 +2,13 @@ package com.b.nsofronovic.bitcoinwallet.service
 
 import android.content.Context
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.b.nsofronovic.bitcoinwallet.model.WalletWizard
 import com.b.nsofronovic.bitcoinwallet.rx.RxBus
 import com.b.nsofronovic.bitcoinwallet.rx.RxEvent
+import com.b.nsofronovic.bitcoinwallet.settings.SettingsConstants
+import com.b.nsofronovic.bitcoinwallet.settings.SettingsManager
 import io.reactivex.Single
 import org.bitcoinj.core.*
 import org.bitcoinj.core.listeners.DownloadProgressTracker
@@ -12,6 +16,7 @@ import org.bitcoinj.kits.WalletAppKit
 import org.bitcoinj.params.TestNet3Params
 import org.bitcoinj.wallet.SendRequest
 import org.bitcoinj.wallet.Wallet
+import org.bitcoinj.wallet.WalletTransaction
 import java.io.File
 import java.lang.Exception
 import java.util.*
@@ -78,14 +83,10 @@ class WalletService @Inject constructor(private val context: Context) {
         return walletAppKit
     }
 
-    fun sendTransaction(amountToSend: String, destinationAddress: String): Single<Boolean> {
-        return Single.create{
+    fun sendTransaction(wallet: Wallet, amountToSend: String, destinationAddress: String): Single<Boolean> {
+        return Single.create {
             try {
                 org.bitcoinj.core.Context.getOrCreate(getTestNetwork())
-
-                val filePath = File(context.filesDir.parent + "/files/" + "0.001.wallet")
-
-                val wallet = Wallet.loadFromFile(filePath)
 
                 val sendRequest = SendRequest
                     .to(Address.fromBase58(getTestNetwork(), destinationAddress), Coin.parseCoin(amountToSend))
@@ -101,5 +102,11 @@ class WalletService @Inject constructor(private val context: Context) {
                 it.onError(ex)
             }
         }
+    }
+
+    fun loadWalletFromFile(walletName: String): Wallet {
+        val filePath = File(context.filesDir.parent + "/files/" + walletName + ".wallet")
+
+        return Wallet.loadFromFile(filePath)
     }
 }

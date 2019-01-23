@@ -11,6 +11,7 @@ import com.b.nsofronovic.bitcoinwallet.ui.mnemonicseed.MnemonicSeedView
 import com.b.nsofronovic.bitcoinwallet.ui.receivetransaction.ReceiveTransactionView
 import com.b.nsofronovic.bitcoinwallet.ui.sendtransaction.SendTransactionView
 import com.b.nsofronovic.bitcoinwallet.ui.splashscreen.SplashScreenView
+import com.b.nsofronovic.bitcoinwallet.ui.transactiondetails.TransactionDetailView
 import com.b.nsofronovic.bitcoinwallet.ui.walletname.WalletNameView
 import com.b.nsofronovic.bitcoinwallet.ui.walletoverview.WalletOverviewView
 import dagger.Component
@@ -46,6 +47,8 @@ interface AppComponent {
     fun inject (sendTransactionView: SendTransactionView)
 
     fun inject (receiveTransactionView: ReceiveTransactionView)
+
+    fun inject (transactionDetailView: TransactionDetailView)
 
     fun wizardService(): WizardService
 

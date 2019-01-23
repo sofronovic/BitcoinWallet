@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.b.nsofronovic.bitcoinwallet.R
 import com.b.nsofronovic.bitcoinwallet.api.BlockchainApi
 import com.b.nsofronovic.bitcoinwallet.application.App
+import com.b.nsofronovic.bitcoinwallet.model.Transaction
 import com.b.nsofronovic.bitcoinwallet.model.Wallet
 import com.b.nsofronovic.bitcoinwallet.ui.ContainerActivity
 import com.b.nsofronovic.bitcoinwallet.ui.CustomViewModelFactory
@@ -18,16 +20,22 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_dashboard.*
+import kotlinx.android.synthetic.main.fragment_dashboard.view.*
+import org.bitcoinj.core.Coin
 import javax.inject.Inject
 
-class DashboardView : Fragment() {
+class DashboardView : Fragment(), ITransactionListener {
 
     private lateinit var viewModel: DashboardViewModel
 
     private val compositeDisposable = CompositeDisposable()
 
+    private lateinit var adapter: TransactionAdapter
+
     @Inject
     lateinit var viewModelFactory: CustomViewModelFactory
+
+    private var transactions: List<Transaction> = mutableListOf()
 
     val blockchainApi by lazy {
         BlockchainApi.create()
@@ -43,6 +51,10 @@ class DashboardView : Fragment() {
 
         (activity as ContainerActivity).showNavigation()
 
+        view.rvTransactions.layoutManager = LinearLayoutManager(activity!!)
+        adapter = TransactionAdapter(this.activity!!, this)
+        view.rvTransactions.adapter = adapter
+
         return view
     }
 
@@ -50,10 +62,12 @@ class DashboardView : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(DashboardViewModel::class.java)
+
         compositeDisposable.add(viewModel.loadWalletFromDatabase()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { t1 -> displayWallet(t1) })
+
     }
 
     override fun onStop() {
@@ -69,15 +83,29 @@ class DashboardView : Fragment() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                { result -> tvBalance.text = (result.balance.toString()) },
-                { error -> Log.d("AddressBalance", error.message) }
+                { result ->
+                    setTransactionHistory(result.txrefs)
+                    tvBalance.text = (Coin.valueOf(result.balance.toLong()).toFriendlyString()) },
+                { error -> Log.d("Blockchain API", error.message) }
             ))
+    }
+
+    private fun setTransactionHistory(txs: List<Transaction>) {
+        transactions = txs
+        adapter.setTransactions(transactions)
     }
 
     private fun openReceiveTransactionScreen() {
         val action = DashboardViewDirections
             .actionDashboardViewToReceiveTransaction(tvAddress.text.toString())
         action.myAddress = tvAddress.text.toString()
+        findNavController().navigate(action)
+    }
+
+    override fun onTransactionClicked(hash: String?) {
+        val action =
+            DashboardViewDirections.actionDashboardViewToTransactionDetailView(hash!!)
+        action.transactionHash = hash
         findNavController().navigate(action)
     }
 }

@@ -1,7 +1,6 @@
 package com.b.nsofronovic.bitcoinwallet.ui.authenticationsetup
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,15 +11,7 @@ import com.b.nsofronovic.bitcoinwallet.R
 import com.b.nsofronovic.bitcoinwallet.application.App
 import com.b.nsofronovic.bitcoinwallet.model.AuthenticationType
 import com.b.nsofronovic.bitcoinwallet.ui.CustomViewModelFactory
-import io.reactivex.Completable
-import io.reactivex.CompletableObserver
-import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Action
-import io.reactivex.internal.util.HalfSerializer.onComplete
-import io.reactivex.plugins.RxJavaPlugins.onError
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_authentication_setup.*
 import kotlinx.android.synthetic.main.fragment_authentication_setup.view.*
 import javax.inject.Inject

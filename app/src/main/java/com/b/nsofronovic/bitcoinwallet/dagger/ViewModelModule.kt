@@ -2,7 +2,6 @@ package com.b.nsofronovic.bitcoinwallet.dagger
 
 import androidx.lifecycle.ViewModel
 import com.b.nsofronovic.bitcoinwallet.ui.authenticationsetup.AuthenticationSetupViewModel
-import com.b.nsofronovic.bitcoinwallet.ui.contactdetail.ContactDetailView
 import com.b.nsofronovic.bitcoinwallet.ui.contactdetail.ContactDetailViewModel
 import com.b.nsofronovic.bitcoinwallet.ui.contactlist.ContactsViewModel
 import com.b.nsofronovic.bitcoinwallet.ui.dashboard.DashboardViewModel
@@ -10,6 +9,7 @@ import com.b.nsofronovic.bitcoinwallet.ui.mnemonicseed.MnemonicSeedViewModel
 import com.b.nsofronovic.bitcoinwallet.ui.receivetransaction.ReceiveTransactionViewModel
 import com.b.nsofronovic.bitcoinwallet.ui.sendtransaction.SendTransactionViewModel
 import com.b.nsofronovic.bitcoinwallet.ui.splashscreen.SplashScreenViewModel
+import com.b.nsofronovic.bitcoinwallet.ui.transactiondetails.TransactionDetailViewModel
 import com.b.nsofronovic.bitcoinwallet.ui.walletname.WalletNameViewModel
 import com.b.nsofronovic.bitcoinwallet.ui.walletoverview.WalletOverviewViewModel
 import dagger.Binds
@@ -68,4 +68,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ReceiveTransactionViewModel::class)
     abstract fun bindReceiveTransactionViewModel(viewModel: ReceiveTransactionViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(TransactionDetailViewModel::class)
+    abstract fun bindTransactionDetailViewModel(viewModel: TransactionDetailViewModel): ViewModel
 }
