@@ -16,7 +16,8 @@
             android:theme="@style/AppTheme"
             android:name=".application.App"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.b.nsofronovic.bitcoinwallet.ui.ContainerActivity">
+        <activity android:name="com.b.nsofronovic.bitcoinwallet.ui.ContainerActivity"
+                android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

@@ -12,12 +12,18 @@
     <string name="initialize_wallet">Initialize wallet</string>
     <string name="finish_setup">finish setup</string>
     <string name="send_bitcoin">send bitcoin</string>
-    <string name="contacts">contacts</string>
-    <string name="address">Wallet address</string>
+    <string name="contacts">Contacts</string>
+    <string name="address">Address</string>
     <string name="wallet_name">Wallet name</string>
-    <string name="wallet_balance">Wallet balance</string>
+    <string name="wallet_balance">Balance</string>
     <string name="add_new_contact">New contact</string>
     <string name="bitcoin_amount">bitcoin amount</string>
     <string name="receiver_address">receiver address</string>
     <string name="send">send</string>
+    <string name="receive_transaction">Receive</string>
+    <string name="sent">Sent</string>
+    <string name="received">Received</string>
+    <string name="transaction_history">Transaction history</string>
+    <string name="send_transaction">Send</string>
+    <string name="dashboard">Dashboard</string>
 </resources>

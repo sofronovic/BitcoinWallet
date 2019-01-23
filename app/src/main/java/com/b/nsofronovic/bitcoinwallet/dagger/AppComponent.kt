@@ -8,6 +8,7 @@ import com.b.nsofronovic.bitcoinwallet.ui.contactdetail.ContactDetailView
 import com.b.nsofronovic.bitcoinwallet.ui.contactlist.ContactsView
 import com.b.nsofronovic.bitcoinwallet.ui.dashboard.DashboardView
 import com.b.nsofronovic.bitcoinwallet.ui.mnemonicseed.MnemonicSeedView
+import com.b.nsofronovic.bitcoinwallet.ui.receivetransaction.ReceiveTransactionView
 import com.b.nsofronovic.bitcoinwallet.ui.sendtransaction.SendTransactionView
 import com.b.nsofronovic.bitcoinwallet.ui.splashscreen.SplashScreenView
 import com.b.nsofronovic.bitcoinwallet.ui.walletname.WalletNameView
@@ -43,6 +44,8 @@ interface AppComponent {
     fun inject (contactDetailView: ContactDetailView)
 
     fun inject (sendTransactionView: SendTransactionView)
+
+    fun inject (receiveTransactionView: ReceiveTransactionView)
 
     fun wizardService(): WizardService
 

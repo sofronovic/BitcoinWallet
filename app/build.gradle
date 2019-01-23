@@ -74,6 +74,9 @@ dependencies {
     //FAB
     implementation 'com.github.imtuann:FloatingActionButtonExpandable:1.1.2'
 
+    //QrCode
+    implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.3'
+
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'

@@ -12,14 +12,12 @@ import com.b.nsofronovic.bitcoinwallet.R
 import com.b.nsofronovic.bitcoinwallet.api.BlockchainApi
 import com.b.nsofronovic.bitcoinwallet.application.App
 import com.b.nsofronovic.bitcoinwallet.model.Wallet
+import com.b.nsofronovic.bitcoinwallet.ui.ContainerActivity
 import com.b.nsofronovic.bitcoinwallet.ui.CustomViewModelFactory
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_dashboard.*
-import kotlinx.android.synthetic.main.fragment_dashboard.view.*
-import org.bitcoinj.core.Coin
-import java.lang.Exception
 import javax.inject.Inject
 
 class DashboardView : Fragment() {
@@ -35,7 +33,6 @@ class DashboardView : Fragment() {
         BlockchainApi.create()
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         App.applicationComponent.inject(this)
@@ -44,13 +41,7 @@ class DashboardView : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
-        view.btnContacts.setOnClickListener {
-            findNavController().navigate(R.id.action_dashboardView_to_contactsView)
-        }
-
-        view.btnSendBitcoin.setOnClickListener {
-            findNavController().navigate(R.id.action_dashboardView_to_sendTransactionView)
-        }
+        (activity as ContainerActivity).showNavigation()
 
         return view
     }
@@ -78,10 +69,15 @@ class DashboardView : Fragment() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                { result -> tvBalance.text = (result.balance.toString())},
+                { result -> tvBalance.text = (result.balance.toString()) },
                 { error -> Log.d("AddressBalance", error.message) }
             ))
+    }
 
-
+    private fun openReceiveTransactionScreen() {
+        val action = DashboardViewDirections
+            .actionDashboardViewToReceiveTransaction(tvAddress.text.toString())
+        action.myAddress = tvAddress.text.toString()
+        findNavController().navigate(action)
     }
 }

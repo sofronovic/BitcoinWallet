@@ -7,6 +7,7 @@ import com.b.nsofronovic.bitcoinwallet.ui.contactdetail.ContactDetailViewModel
 import com.b.nsofronovic.bitcoinwallet.ui.contactlist.ContactsViewModel
 import com.b.nsofronovic.bitcoinwallet.ui.dashboard.DashboardViewModel
 import com.b.nsofronovic.bitcoinwallet.ui.mnemonicseed.MnemonicSeedViewModel
+import com.b.nsofronovic.bitcoinwallet.ui.receivetransaction.ReceiveTransactionViewModel
 import com.b.nsofronovic.bitcoinwallet.ui.sendtransaction.SendTransactionViewModel
 import com.b.nsofronovic.bitcoinwallet.ui.splashscreen.SplashScreenViewModel
 import com.b.nsofronovic.bitcoinwallet.ui.walletname.WalletNameViewModel
@@ -62,4 +63,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SendTransactionViewModel::class)
     abstract fun bindSendTransactionViewModel(viewModel: SendTransactionViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ReceiveTransactionViewModel::class)
+    abstract fun bindReceiveTransactionViewModel(viewModel: ReceiveTransactionViewModel): ViewModel
 }

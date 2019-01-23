@@ -1,45 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation_graph"
-    app:startDestination="@id/splashScreenView">
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/navigation_graph"
+            app:startDestination="@id/splashScreenView">
 
     <fragment
-        android:id="@+id/splashScreenView"
-        android:name="com.b.nsofronovic.bitcoinwallet.ui.splashscreen.SplashScreenView"
-        android:label="SplashScreen"
-        tools:layout="@layout/fragment_splash_screen">
+            android:id="@+id/splashScreenView"
+            android:name="com.b.nsofronovic.bitcoinwallet.ui.splashscreen.SplashScreenView"
+            android:label="SplashScreen"
+            tools:layout="@layout/fragment_splash_screen">
         <action
-            android:id="@+id/action_splashScreen_to_initializeWalletView"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/navigation_graph"
-            app:popUpToInclusive="true"
-            app:destination="@+id/initializeWalletView"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"/>
+                android:id="@+id/action_splashScreen_to_initializeWalletView"
+                app:launchSingleTop="true"
+                app:popUpTo="@id/navigation_graph"
+                app:popUpToInclusive="true"
+                app:destination="@+id/initializeWalletView"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"/>
         <action
                 android:id="@+id/action_splashScreenView_to_dashboardView"
                 app:destination="@id/dashboardView"/>
     </fragment>
 
     <fragment
-        android:id="@+id/initializeWalletView"
-        android:name="com.b.nsofronovic.bitcoinwallet.ui.initializewallet.InitializeWalletView"
-        android:label="InitializeWalletView"
-        tools:layout="@layout/fragment_initialize_wallet">
+            android:id="@+id/initializeWalletView"
+            android:name="com.b.nsofronovic.bitcoinwallet.ui.initializewallet.InitializeWalletView"
+            android:label="InitializeWalletView"
+            tools:layout="@layout/fragment_initialize_wallet">
 
-    <action android:id="@+id/action_initializeWalletView_to_walletNameView"
-        app:destination="@id/walletNameView"
-        app:enterAnim="@anim/nav_default_enter_anim"
-        app:exitAnim="@anim/nav_default_exit_anim"/>
+        <action
+                android:id="@+id/action_initializeWalletView_to_walletNameView"
+                app:destination="@id/walletNameView"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"/>
     </fragment>
 
     <fragment
-        android:id="@+id/contactsView"
-        android:name="com.b.nsofronovic.bitcoinwallet.ui.contactlist.ContactsView"
-        android:label="ContactsView"
-        tools:layout="@layout/fragment_contacts">
+            android:id="@+id/contactsView"
+            android:name="com.b.nsofronovic.bitcoinwallet.ui.contactlist.ContactsView"
+            android:label="ContactsView"
+            tools:layout="@layout/fragment_contacts">
         <action
                 android:id="@+id/action_contactsView_to_contactDetailView"
                 app:destination="@id/contactDetailView"
@@ -48,13 +49,16 @@
     </fragment>
 
     <fragment
-        android:id="@+id/walletNameView"
-        android:name="com.b.nsofronovic.bitcoinwallet.ui.walletname.WalletNameView"
-        android:label="fragment_wallet_name"
-        tools:layout="@layout/fragment_wallet_name">
+            android:id="@+id/walletNameView"
+            android:name="com.b.nsofronovic.bitcoinwallet.ui.walletname.WalletNameView"
+            android:label="fragment_wallet_name"
+            tools:layout="@layout/fragment_wallet_name">
         <action
                 android:id="@+id/action_walletNameView_to_mnemonicSeedView"
                 app:destination="@id/mnemonicSeedView"
+                app:launchSingleTop="true"
+                app:popUpTo="@navigation/navigation_graph"
+                app:popUpToInclusive="true"
                 app:enterAnim="@anim/nav_default_enter_anim"
                 app:exitAnim="@anim/nav_default_exit_anim"/>
     </fragment>
@@ -106,6 +110,11 @@
                 app:destination="@id/sendTransactionView"
                 app:enterAnim="@anim/nav_default_enter_anim"
                 app:exitAnim="@anim/nav_default_exit_anim"/>
+        <action
+                android:id="@+id/action_dashboardView_to_receiveTransaction"
+                app:destination="@id/receiveTransactionView"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"/>
     </fragment>
     <fragment
             android:id="@+id/contactDetailView"
@@ -129,5 +138,14 @@
             android:name="com.b.nsofronovic.bitcoinwallet.ui.sendtransaction.SendTransactionView"
             android:label="fragment_send_transaction"
             tools:layout="@layout/fragment_send_transaction"/>
+    <fragment
+            android:id="@+id/receiveTransactionView"
+            android:name="com.b.nsofronovic.bitcoinwallet.ui.receivetransaction.ReceiveTransactionView"
+            android:label="fragment_receive_transaction"
+            tools:layout="@layout/fragment_receive_transaction">
 
+        <argument
+                android:name="myAddress"
+                app:argType="string"/>
+    </fragment>
 </navigation>

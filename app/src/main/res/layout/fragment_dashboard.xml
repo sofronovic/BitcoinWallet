@@ -5,117 +5,194 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.dashboard.DashboardView">
-
-    <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="?android:actionBarSize"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="#000"/>
-
-    <TextView
-            android:id="@+id/lbAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/address"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@+id/lbName"/>
-
-    <TextView
-            android:id="@+id/tvAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="test address"
-            app:layout_constraintStart_toEndOf="@+id/lbAddress"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvName"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintHorizontal_bias="0.074"
-            android:textIsSelectable="true"/>
-
-    <TextView
-            android:id="@+id/lbName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/wallet_name"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="@+id/guideline2"/>
+        tools:context=".ui.dashboard.DashboardView"
+        android:background="@drawable/custom_cardview_background">
 
     <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="test name"
-            app:layout_constraintStart_toEndOf="@+id/lbName"
-            android:layout_marginStart="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="My Wallet"
+            android:textSize="20sp"
+            android:textColor="@color/text_color_high_emphasis"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginEnd="8dp"
-            app:layout_constraintHorizontal_bias="0.049"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="@+id/guideline2"/>
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
             android:id="@+id/lbBalance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/wallet_balance"
+            android:textSize="16sp"
+            android:textColor="@color/text_color_medium_emphasis"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/lbAddress"
-            android:layout_marginTop="4dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"/>
 
     <TextView
             android:id="@+id/tvBalance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="test balance"
-            app:layout_constraintStart_toEndOf="@+id/lbBalance"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintHorizontal_bias="0.083"/>
-
-    <Button
-            android:id="@+id/btnSendBitcoin"
-            android:layout_width="115dp"
-            android:layout_height="wrap_content"
-            android:text="@string/send_bitcoin"
+            android:text="0.11325217 BTC"
+            android:textSize="20sp"
+            android:textColor="@color/text_color_high_emphasis"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/lbBalance"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/lbBalance"/>
+            android:layout_marginEnd="8dp"/>
 
-    <Button
-            android:id="@+id/btnContacts"
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/contacts"
-            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/address"
+            android:textSize="16sp"
+            android:textColor="@color/text_color_medium_emphasis"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvBalance"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/btnSendBitcoin"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginEnd="8dp"
-            app:layout_constraintHorizontal_bias="0.0"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/textView2"/>
+
+    <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:text="mje2F5tdP5t2R5sWyPGdTD2EycbBJqKGTC"
+            android:textSize="16sp"
+            android:textColor="@color/text_color_high_emphasis"
+            android:textIsSelectable="true"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintVertical_bias="0.0"/>
 
     <androidx.constraintlayout.widget.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/guideline2"
-            app:layout_constraintGuide_begin="76dp"
+            app:layout_constraintGuide_begin="204dp"
             android:orientation="horizontal"/>
+
+    <TextView
+            android:id="@+id/lbSent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sent"
+            android:textSize="16sp"
+            android:textColor="@color/text_color_sent"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"/>
+
+    <TextView
+            android:id="@+id/tvSent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/text_color_high_emphasis"
+            android:text="3.400 BTC"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/lbSent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline6"
+            app:layout_constraintVertical_bias="0.0"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guideline5"
+            app:layout_constraintGuide_begin="205dp"
+            android:orientation="vertical"/>
+
+    <TextView
+            android:id="@+id/lbReceived"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/received"
+            android:textSize="16sp"
+            android:textColor="@color/text_color_received"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+            android:id="@+id/tvReceived"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_high_emphasis"
+            android:textSize="16sp"
+            android:text="0.532 BTC"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/lbReceived"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline6"
+            app:layout_constraintVertical_bias="0.0"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guideline6"
+            app:layout_constraintGuide_begin="308dp"
+            android:orientation="horizontal"/>
+
+    <TextView
+            android:id="@+id/lbTransactionHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/transaction_history"
+            android:textSize="20sp"
+            android:textColor="@color/text_color_high_emphasis"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="@+id/guideline6"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTransactions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/custom_recycler_background"
+            app:layout_constraintHorizontal_bias="0.488"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/lbTransactionHistory"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

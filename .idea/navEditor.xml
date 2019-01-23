@@ -34,8 +34,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="1336" />
-                            <option name="y" value="107" />
+                            <option name="x" value="1447" />
+                            <option name="y" value="-1" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -55,8 +55,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="1000" />
-                            <option name="y" value="204" />
+                            <option name="x" value="1186" />
+                            <option name="y" value="167" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -83,6 +83,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_dashboardView_to_contactsView">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_dashboardView_to_receiveTransaction">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -139,13 +144,25 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="sendTransactionView">
+                  <entry key="receiveTransactionView">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
                             <option name="x" value="1210" />
-                            <option name="y" value="598" />
+                            <option name="y" value="878" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="sendTransactionView">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="1193" />
+                            <option name="y" value="524" />
                           </Point>
                         </option>
                       </LayoutPositions>

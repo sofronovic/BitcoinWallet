@@ -1,6 +1,7 @@
 package com.b.nsofronovic.bitcoinwallet.ui.sendtransaction
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +10,14 @@ import androidx.lifecycle.ViewModelProviders
 import com.b.nsofronovic.bitcoinwallet.R
 import com.b.nsofronovic.bitcoinwallet.application.App
 import com.b.nsofronovic.bitcoinwallet.ui.CustomViewModelFactory
+import com.google.android.material.snackbar.Snackbar
+import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_send_transaction.*
 import kotlinx.android.synthetic.main.fragment_send_transaction.view.*
+import org.bitcoinj.core.InsufficientMoneyException
 import javax.inject.Inject
 
 class SendTransactionView : Fragment() {
@@ -32,12 +37,22 @@ class SendTransactionView : Fragment() {
 
         view.btnSendTransaction.setOnClickListener {
 
-            viewModel.sendTransaction(etBitcoinAmount.text.toString(), etReceiveAddress.text.toString())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe {
-                    System.out.println("Transaction sent.")
+        viewModel.sendTransaction(etBitcoinAmount.text.toString(), etReceiveAddress.text.toString())
+            .subscribe(object : SingleObserver<Boolean> {
+                override fun onSuccess(isSuccess: Boolean?) {
+                    if (isSuccess!!) {
+                        Snackbar.make(view, "Transaction successfully sent", Snackbar.LENGTH_SHORT)
+                    }
                 }
+
+                override fun onError(e: Throwable?) {
+                    Snackbar.make(view, e?.message!!, Snackbar.LENGTH_SHORT)
+                }
+
+                override fun onSubscribe(d: Disposable?) {
+                    Log.d("SendTransaction", "onSubscribe();")
+                }
+            })
         }
 
         return view
